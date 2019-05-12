@@ -1,0 +1,11 @@
+/Users/Steve/Projects/Midterm1-SpacedOutLibrary/bin/Debug/netcoreapp2.1/Midterm1-SpacedOutLibrary.deps.json
+/Users/Steve/Projects/Midterm1-SpacedOutLibrary/bin/Debug/netcoreapp2.1/Midterm1-SpacedOutLibrary.runtimeconfig.json
+/Users/Steve/Projects/Midterm1-SpacedOutLibrary/bin/Debug/netcoreapp2.1/Midterm1-SpacedOutLibrary.runtimeconfig.dev.json
+/Users/Steve/Projects/Midterm1-SpacedOutLibrary/bin/Debug/netcoreapp2.1/Midterm1-SpacedOutLibrary.dll
+/Users/Steve/Projects/Midterm1-SpacedOutLibrary/bin/Debug/netcoreapp2.1/Midterm1-SpacedOutLibrary.pdb
+/Users/Steve/Projects/Midterm1-SpacedOutLibrary/obj/Debug/netcoreapp2.1/Midterm1-SpacedOutLibrary.csprojAssemblyReference.cache
+/Users/Steve/Projects/Midterm1-SpacedOutLibrary/obj/Debug/netcoreapp2.1/Midterm1-SpacedOutLibrary.csproj.CoreCompileInputs.cache
+/Users/Steve/Projects/Midterm1-SpacedOutLibrary/obj/Debug/netcoreapp2.1/Midterm1-SpacedOutLibrary.AssemblyInfoInputs.cache
+/Users/Steve/Projects/Midterm1-SpacedOutLibrary/obj/Debug/netcoreapp2.1/Midterm1-SpacedOutLibrary.AssemblyInfo.cs
+/Users/Steve/Projects/Midterm1-SpacedOutLibrary/obj/Debug/netcoreapp2.1/Midterm1-SpacedOutLibrary.dll
+/Users/Steve/Projects/Midterm1-SpacedOutLibrary/obj/Debug/netcoreapp2.1/Midterm1-SpacedOutLibrary.pdb

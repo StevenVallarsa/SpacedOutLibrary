@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{384E4587-92CA-4AD2-93D2-61D9FB264169}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Model.cs">
+    <Files>
+      <File FileName="Program.cs" Line="14" Column="35" />
+      <File FileName="BookView.cs" Line="28" Column="99" />
+      <File FileName="Controller.cs" Line="92" Column="49" />
+      <File FileName="Model.cs" Line="21" Column="15" />
+      <File FileName="Book.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Midterm1-SpacedOutLibrary" expanded="True">
+            <Node name="Midterm1-SpacedOutLibrary" expanded="True">
+              <Node name="Model.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Midterm1-SpacedOutLibrary PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
