@@ -42,7 +42,7 @@ namespace SpacedOutLibrary
             while (run)
             {
                 Console.WriteLine();
-                Console.Write("Select a book number to check out, or \"0\" (zero) to return to the main menu: ");
+                Console.Write("Select a book number to check out, \nor \"0\" (zero) to return to the main menu: ");
                 string input = Console.ReadLine();
 
                 if (input == "0" || input.ToLower() == "zero")
@@ -61,7 +61,7 @@ namespace SpacedOutLibrary
 
                         if (Results[selection - 1].Status == true)
                         {
-                            throw new Exception("Your selection is not logical for it is already being enjoyed by another Carbon Unit.");
+                            throw new Exception("Your selection is not logical for it is already being enjoyed \nby another Carbon Unit.");
                         }
 
                         run = false;

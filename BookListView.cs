@@ -24,10 +24,11 @@ namespace SpacedOutLibrary
         //meth
         public void Display()
         {
+            Console.Clear(); // clear screen and start fresh
+
             bool libraryOpen = true;
             while (libraryOpen)
             {
-                Console.Clear(); // clear screen and start fresh
 
                 bool run = true;
                 while (run)
@@ -57,33 +58,10 @@ namespace SpacedOutLibrary
                             Console.Clear();
                             continue;
                         }
-                        //else if (result < 1 || result > Books.Count)
-                        //{
-                        //    Console.Clear();
-                        //    Console.WriteLine("KAAAAAAAHN!!! Select a book in the range below.");
-                        //    Console.WriteLine();
-                        //    continue;
-                        //}
-                        //else if (Books[result - 1].Status == true)
-                        //{
-                        //    Console.Clear();
-                        //    Console.WriteLine("Your selection is not logical for it is already checked out.");
-                        //    Console.WriteLine();
-                        //    continue;
-                        //}
                         else
                         {
                             GetCheckoutDate(result);
 
-                            //Console.Clear();
-                            //Books[result - 1].Status = true;
-                            //DateTime thismoment = DateTime.Today;
-                            //DateTime twoWeeksFromNow = thismoment.AddDays(14);
-                            //string date = twoWeeksFromNow.ToString();
-                            //string date2 = date.Substring(0, date.IndexOf(' '));
-                            //Console.WriteLine($"You checked out \"{Books[result - 1].Title}\" and it is due {date2}.");
-                            //Console.WriteLine();
-                            //Books[result - 1].DueDate = date2;
                         }
 
                     }
@@ -92,7 +70,20 @@ namespace SpacedOutLibrary
 
                         List<Book> titleResults = c.SearchTitle();
                         View(titleResults);
+                        if (titleResults.Count == 0)
+                        {
+                            Console.WriteLine();
+                            break;
+                        }
+
                         int selection = c.Checkout(titleResults);
+
+                        if (selection == 0)
+                        {
+                            Console.Clear();
+                            break;
+                        }
+
                         int index = titleResults[selection - 1].Index;
 
                         Books[index].Status = true;
@@ -100,60 +91,32 @@ namespace SpacedOutLibrary
                         GetCheckoutDate(index + 1);
                         titleResults.Clear();
 
-                        //DateTime thismoment = DateTime.Today;
-                        //DateTime twoWeeksFromNow = thismoment.AddDays(14);
-                        //string date = twoWeeksFromNow.ToString();
-                        //string date2 = date.Substring(0, date.IndexOf(' '));
-                        //Console.WriteLine($"You checked out \"{Books[index - 1].Title}\" and it is due {date2}.");
-                        //Console.WriteLine();
-
-                        //Books[index].DueDate = Books[]
-
-
-                        //if (titleResults.Count == 0)
-                        //{
-                        //    Console.Clear();
-                        //    Console.WriteLine("Ooph! Your search created a Black Hole of nothingness.");
-                        //    Console.WriteLine();
-
-                        //}
-                        //else
-                        //{
-                        //    for (int i = 0; i < titleResults.Count; i++)
-                        //    {
-
-                        //        List<Book> authorList = c.SearchAuthor();
-                        //        View(authorList);
-                        //        Console.WriteLine();
-
-                        //    }
-                        //}
-
 
                     }
                     else if (input == "3" || input.ToLower() == "author")
                     {
-                        List<Book> listBooks = c.SearchAuthor();
-                        View(listBooks);
+                        List<Book> authorResults = c.SearchAuthor();
+                        View(authorResults);
+                        if (authorResults.Count == 0)
+                        {
+                            Console.WriteLine();
+                            break;
+                        }
 
-                        if (listBooks.Count == 0)
+                        int selection = c.Checkout(authorResults);
+
+                        if (selection == 0)
                         {
                             Console.Clear();
-                            Console.WriteLine("There can be only none! ... as in your search had its head cut off.");
-                            Console.WriteLine();
-
+                            break;
                         }
-                        else
-                        {
-                            for (int i = 0; i < listBooks.Count; i++)
-                            {
 
-                                List<Book> authorList = c.SearchAuthor();
-                                View(authorList);
-                                Console.WriteLine();
+                        int index = authorResults[selection - 1].Index;
 
-                            }
-                        }
+                        Books[index].Status = true;
+
+                        GetCheckoutDate(index + 1);
+                        authorResults.Clear();
 
 
                     }
@@ -193,6 +156,7 @@ namespace SpacedOutLibrary
         {
             if (Results.Count == 0)
             {
+                Console.Clear();
                 Console.WriteLine("He's dead Jim! Your search came out NULL.");
             }
             else
