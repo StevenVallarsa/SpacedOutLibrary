@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="BookListView.cs">
     <Files>
       <File FileName="Program.cs" Line="14" Column="1" />
-      <File FileName="Controller.cs" Line="64" Column="114" />
-      <File FileName="BookListView.cs" Line="103" Column="1" />
+      <File FileName="Controller.cs" Line="12" Column="41" />
+      <File FileName="BookListView.cs" Line="90" Column="58" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

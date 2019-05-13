@@ -60,7 +60,7 @@ namespace SpacedOutLibrary
                         }
                         else
                         {
-                            GetCheckoutDate(result);
+                            GetCheckoutDate(result - 1);
 
                         }
 
@@ -77,6 +77,7 @@ namespace SpacedOutLibrary
                         }
 
                         int selection = c.Checkout(titleResults);
+                        Console.WriteLine(selection);
 
                         if (selection == 0)
                         {
@@ -85,12 +86,8 @@ namespace SpacedOutLibrary
                         }
 
                         int index = titleResults[selection - 1].Index;
-
-                        Books[index].Status = true;
-
-                        GetCheckoutDate(index + 1);
+                        GetCheckoutDate(index);
                         titleResults.Clear();
-
 
                     }
                     else if (input == "3" || input.ToLower() == "author")
@@ -112,12 +109,9 @@ namespace SpacedOutLibrary
                         }
 
                         int index = authorResults[selection - 1].Index;
-
-                        Books[index].Status = true;
-
-                        GetCheckoutDate(index + 1);
+                        
+                        GetCheckoutDate(index);
                         authorResults.Clear();
-
 
                     }
                     else if (input == "4" || input.ToLower() == "return")
@@ -189,6 +183,7 @@ namespace SpacedOutLibrary
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine("Here are the awesome books you have checked out.");
                 Console.WriteLine();
                 Console.WriteLine(" # TITLE:                    AUTHOR:             DUE DATE:");
@@ -198,11 +193,12 @@ namespace SpacedOutLibrary
                     Console.WriteLine($"{i + 1,2} {BooksOut[i].Title,-25} {BooksOut[i].Author,-19} {(BooksOut[i].DueDate)}");
                 }
 
+                int result = 0;
                 bool run = true;
                 while (run)
                 {
                     Console.WriteLine();
-                    Console.Write("Which book would you like to return | or enter 0 (zero) to return to the main menu: ");
+                    Console.Write("Which book would you like to return | or \nenter 0 (zero) to return to the main menu: ");
                     string input = Console.ReadLine();
 
                     if (input == "0" || input.ToLower() == "zero")
@@ -212,10 +208,14 @@ namespace SpacedOutLibrary
 
                     try
                     {
-                        int index = int.Parse(input);
-                        if (index < 1 || index > BooksOut.Count)
+                        result = int.Parse(input);
+                        if (result < 1 || result > BooksOut.Count)
                         {
                             throw new Exception("That does not computer. Try again.");
+                        }
+                        else
+                        {
+                            run = false;
                         }
                     }
                     catch(FormatException)
@@ -230,6 +230,12 @@ namespace SpacedOutLibrary
 
                 }
 
+                int index = BooksOut[result - 1].Index;
+                Books[index].Status = false;
+                Books[index].DueDate = "";
+                Console.Clear();
+                Console.WriteLine($"You returned \"{Books[index].Title}\". May the Force be with you.");
+                Console.WriteLine();
             }
 
         }
@@ -238,15 +244,14 @@ namespace SpacedOutLibrary
         {
 
             Console.Clear();
-
-            Books[result - 1].Status = true;
+            Books[result].Status = true;
             DateTime thismoment = DateTime.Today;
             DateTime twoWeeksFromNow = thismoment.AddDays(14);
             string date = twoWeeksFromNow.ToString();
             string date2 = date.Substring(0, date.IndexOf(' '));
-            Console.WriteLine($"You checked out \"{Books[result - 1].Title}\" and it is due {date2}.");
+            Console.WriteLine($"You checked out \"{Books[result].Title}\" and will be due back on {date2}.");
             Console.WriteLine();
-            Books[result - 1].DueDate = date2;
+            Books[result].DueDate = date2;
 
         }
 

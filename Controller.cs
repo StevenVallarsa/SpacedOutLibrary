@@ -42,7 +42,7 @@ namespace SpacedOutLibrary
             while (run)
             {
                 Console.WriteLine();
-                Console.Write("Select a book number to check out, \nor \"0\" (zero) to return to the main menu: ");
+                Console.Write("Select a book number to check out, or \n\"0\" (zero) to return to the main menu: ");
                 string input = Console.ReadLine();
 
                 if (input == "0" || input.ToLower() == "zero")
@@ -59,7 +59,8 @@ namespace SpacedOutLibrary
                             throw new Exception("KAAAAAAAHN!!! Select a book in the above range.");
                         }
 
-                        if (Results[selection - 1].Status == true)
+                        int index = Results[selection - 1].Index;
+                        if (Books[index].Status == true)
                         {
                             throw new Exception("Your selection is not logical for it is already being enjoyed \nby another Carbon Unit.");
                         }
@@ -79,9 +80,6 @@ namespace SpacedOutLibrary
                         Console.WriteLine(e.Message);
                     }
                 }
-
-
-                //return selection;    superfluous?
 
             }
             return selection;
@@ -123,12 +121,15 @@ namespace SpacedOutLibrary
 
             foreach (Book b in Books)
             {
+                Console.WriteLine(b.Status);
                 if (b.Title.ToLower().Contains(input))
                 {
                     Results.Add(b);
                 }
 
             }
+
+
             return Results;
         }
 
