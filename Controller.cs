@@ -5,7 +5,7 @@ namespace SpacedOutLibrary
 {
     public class Controller
     {
-        List<Book> Books = new List<Book>();
+        public List<Book> Books = new List<Book>();
 
         List<string> book = new List<string>() {"Farenheit 451", "Ray Radbury", "Dune",
                 "Frank Herbert", "The Callista Chronicles", "Callista Gloss", "Frankenstein", "Mary Shelly",
@@ -96,6 +96,7 @@ namespace SpacedOutLibrary
 
         public List<Book> SearchAuthor()
         {
+            Console.WriteLine();
             Console.Write("What AUTHOR are you searching for? ");
             string input = Console.ReadLine().ToLower();
             Console.WriteLine();
@@ -121,16 +122,22 @@ namespace SpacedOutLibrary
 
             foreach (Book b in Books)
             {
-                Console.WriteLine(b.Status);
                 if (b.Title.ToLower().Contains(input))
                 {
                     Results.Add(b);
                 }
 
             }
-
-
             return Results;
+        }
+
+        public void PrintBooks()
+        {
+            for(int i = 0; i < Books.Count; i++)
+            {
+                Console.WriteLine($"{i + 1,2} {Books[i].Title,-25} {Books[i].Author,-19} {(Books[i].Status == false ? "Available" : Books[i].DueDate)}");
+            }
+
         }
 
     }

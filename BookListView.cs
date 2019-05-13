@@ -61,7 +61,6 @@ namespace SpacedOutLibrary
                         else
                         {
                             GetCheckoutDate(result - 1);
-
                         }
 
                     }
@@ -77,15 +76,16 @@ namespace SpacedOutLibrary
                         }
 
                         int selection = c.Checkout(titleResults);
-                        Console.WriteLine(selection);
 
                         if (selection == 0)
                         {
                             Console.Clear();
+                            titleResults.Clear();
                             break;
                         }
 
                         int index = titleResults[selection - 1].Index;
+
                         GetCheckoutDate(index);
                         titleResults.Clear();
 
@@ -105,6 +105,7 @@ namespace SpacedOutLibrary
                         if (selection == 0)
                         {
                             Console.Clear();
+                            authorResults.Clear();
                             break;
                         }
 
@@ -112,8 +113,13 @@ namespace SpacedOutLibrary
                         
                         GetCheckoutDate(index);
                         authorResults.Clear();
+                    }
+
+                    else if (input == "5")
+                    {
 
                     }
+
                     else if (input == "4" || input.ToLower() == "return")
                     {
                         CheckedOutBooks();
@@ -211,7 +217,7 @@ namespace SpacedOutLibrary
                         result = int.Parse(input);
                         if (result < 1 || result > BooksOut.Count)
                         {
-                            throw new Exception("That does not computer. Try again.");
+                            throw new Exception("That does not compute. Try again.");
                         }
                         else
                         {
@@ -220,7 +226,7 @@ namespace SpacedOutLibrary
                     }
                     catch(FormatException)
                     {
-                        Console.WriteLine("I don't speak Kilingon. Try again.");
+                        Console.WriteLine("I don't speak Klingon. Try again.");
                     }
                     catch (Exception e)
                     {
@@ -240,18 +246,18 @@ namespace SpacedOutLibrary
 
         }
 
-        public void GetCheckoutDate(int result)
+        public void GetCheckoutDate(int index)
         {
 
             Console.Clear();
-            Books[result].Status = true;
+            Books[index].Status = true;
             DateTime thismoment = DateTime.Today;
             DateTime twoWeeksFromNow = thismoment.AddDays(14);
             string date = twoWeeksFromNow.ToString();
             string date2 = date.Substring(0, date.IndexOf(' '));
-            Console.WriteLine($"You checked out \"{Books[result].Title}\" and will be due back on {date2}.");
+            Console.WriteLine($"You checked out \"{Books[index].Title}\" and will be due back on {date2}.");
             Console.WriteLine();
-            Books[result].DueDate = date2;
+            Books[index].DueDate = date2;
 
         }
 
