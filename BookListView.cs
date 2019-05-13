@@ -67,7 +67,7 @@ namespace SpacedOutLibrary
                     else if (input == "2" || input.ToLower() == "title")
                     {
 
-                        List<Book> titleResults = c.SearchTitle();
+                        List<Book> titleResults = c.SearchTitle(Books);
                         View(titleResults);
                         if (titleResults.Count == 0)
                         {
@@ -92,7 +92,7 @@ namespace SpacedOutLibrary
                     }
                     else if (input == "3" || input.ToLower() == "author")
                     {
-                        List<Book> authorResults = c.SearchAuthor();
+                        List<Book> authorResults = c.SearchAuthor(Books);
                         View(authorResults);
                         if (authorResults.Count == 0)
                         {
@@ -115,10 +115,10 @@ namespace SpacedOutLibrary
                         authorResults.Clear();
                     }
 
-                    else if (input == "5")
-                    {
+                    //else if (input == "5")
+                    //{
 
-                    }
+                    //}
 
                     else if (input == "4" || input.ToLower() == "return")
                     {

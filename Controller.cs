@@ -94,14 +94,14 @@ namespace SpacedOutLibrary
         }
 
 
-        public List<Book> SearchAuthor()
+        public List<Book> SearchAuthor(List<Book> bs)
         {
             Console.WriteLine();
             Console.Write("What AUTHOR are you searching for? ");
             string input = Console.ReadLine().ToLower();
             Console.WriteLine();
 
-            foreach (Book b in Books)
+            foreach (Book b in bs)
             {
                 if (b.Author.ToLower().Contains(input))
                 {
@@ -113,14 +113,14 @@ namespace SpacedOutLibrary
         }
 
 
-        public List<Book> SearchTitle()
+        public List<Book> SearchTitle(List<Book> bs)
         {
             Console.WriteLine();
             Console.Write("What TITLE are you searching for? ");
             string input = Console.ReadLine().ToLower();
             Console.WriteLine();
 
-            foreach (Book b in Books)
+            foreach (Book b in bs)
             {
                 if (b.Title.ToLower().Contains(input))
                 {
@@ -131,14 +131,14 @@ namespace SpacedOutLibrary
             return Results;
         }
 
-        public void PrintBooks()
-        {
-            for(int i = 0; i < Books.Count; i++)
-            {
-                Console.WriteLine($"{i + 1,2} {Books[i].Title,-25} {Books[i].Author,-19} {(Books[i].Status == false ? "Available" : Books[i].DueDate)}");
-            }
+        //public void PrintBooks()
+        //{
+        //    for(int i = 0; i < Books.Count; i++)
+        //    {
+        //        Console.WriteLine($"{i + 1,2} {Books[i].Title,-25} {Books[i].Author,-19} {(Books[i].Status == false ? "Available" : Books[i].DueDate)}");
+        //    }
 
-        }
+        //}
 
     }
 
